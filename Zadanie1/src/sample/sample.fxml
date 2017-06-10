@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="borderPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <HBox alignment="center">
+            <Label fx:id="inputLabel" text="Input" />
+            <TextField fx:id="input" onKeyReleased="#textChanged" />
+            <Label fx:id="warningLabel" text="Label" />
+
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10">
+            <fx:define>
+                <ToggleGroup fx:id="inputToggleGroup" />
+            </fx:define>
+            <children>
+                <Label fx:id="inScaleLabel" text="Input Scale" />
+                <RadioButton onAction="#scaleChange" selected="true" text="Celcius">
+               <toggleGroup>
+                  <ToggleGroup fx:id="inputToggleGroup" />
+               </toggleGroup></RadioButton>
+                <RadioButton onAction="#scaleChange" text="Fahrenheit" toggleGroup="$inputToggleGroup" />
+                <RadioButton onAction="#scaleChange" text="Kelvin" toggleGroup="$inputToggleGroup" />
+            </children>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox spacing="10">
+            <fx:define>
+                <ToggleGroup fx:id="outputToggleGroup" />
+            </fx:define>
+            <children>
+                <Label fx:id="outScaleLabel" layoutX="80" layoutY="20" text="Output Scale" />
+                <RadioButton onAction="#scaleChange" selected="true" text="Celcius">
+               <toggleGroup>
+                  <ToggleGroup fx:id="outputToggleGroup" />
+               </toggleGroup></RadioButton>
+                <RadioButton onAction="#scaleChange" text="Fahrenheit" toggleGroup="$outputToggleGroup" />
+                <RadioButton onAction="#scaleChange" text="Kelvin" toggleGroup="$outputToggleGroup" />
+            </children>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="center">
+            <Label fx:id="outputLabel" text="Output" />
+            <TextField fx:id="output" disable="true" />
+        </HBox>
+    </bottom>
+</BorderPane>
